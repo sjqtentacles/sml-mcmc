@@ -1,0 +1,6 @@
+package github.com/sjqtentacles/sml-mcmc
+
+require {
+  github.com/sjqtentacles/sml-prng
+  github.com/sjqtentacles/sml-stats
+}

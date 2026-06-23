@@ -1,0 +1,14 @@
+(* Test executable basis: the mcmc library (which pulls in the vendored
+   sml-prng and sml-stats) plus the harness, helpers, and per-feature suites. *)
+$(SML_LIB)/basis/basis.mlb
+
+../src/mcmc.mlb
+
+harness.sml
+support.sml
+test_metropolis.sml
+test_determinism.sml
+test_gibbs.sml
+test_diagnostics.sml
+entry.sml
+main.sml

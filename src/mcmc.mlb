@@ -1,0 +1,18 @@
+(* MLB for the sml-mcmc library: the vendored sml-prng generators and the
+ * (vendored, descriptive-subset) sml-stats diagnostics, plus the MCMC
+ * sampler sources. Consumers reference this file.
+ *
+ * The dependency .mlb files are brought in WITHOUT a `local` wrapper so that
+ * consumers (the test suite, examples) can name the generator structures
+ * (e.g. SplitMix64) and `Stats` alongside `Mcmc`.
+ *
+ * Dependency order matters: sml-prng first, then sml-stats (whose `StatsFn`
+ * functor is taken over a `RANDOM` generator), then the MCMC sources.
+ * sml-stats's own .mlb also pulls in sml-prng; MLton elaborates a given .mlb
+ * path only once, so listing prng.mlb explicitly here (to pin the order) is a
+ * no-op when stats.mlb references the same file. *)
+$(SML_LIB)/basis/basis.mlb
+../lib/github.com/sjqtentacles/sml-prng/prng.mlb
+../lib/github.com/sjqtentacles/sml-stats/stats.mlb
+mcmc.sig
+mcmc.sml

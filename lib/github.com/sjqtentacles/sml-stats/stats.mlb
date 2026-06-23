@@ -1,0 +1,13 @@
+(* MLB for the (vendored, descriptive-subset) sml-stats library: the vendored
+ * sml-prng generators plus the statistics sources. Consumers reference this
+ * file.
+ *
+ * The dependency .mlb file is brought in WITHOUT a `local` wrapper so that
+ * consumers (the test suite, examples) can name the generator structures
+ * (e.g. SplitMix64) alongside `Stats`. sml-stats's functor `StatsFn` is taken
+ * over a `RANDOM` generator and the default `Stats` is instantiated with
+ * `SplitMix64`, so sml-prng must be loaded first. *)
+$(SML_LIB)/basis/basis.mlb
+../sml-prng/prng.mlb
+stats.sig
+stats.sml
